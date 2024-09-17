@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php
+    echo "<h2> Bienvenido " .$_SESSION['user']->getName()."</h2><a href='index.php?link=user&logout=1'>logout</a>";
+
+    echo ' <h3 id="aviso"></h3> ';
+
+    echo '<a class="enlace" href="index.php?link=playlist&verLista=1">Ver mis Play lists</a>';
+
+    echo '<a class="enlace" href="index.php?link=playlist&crearLista=1">Crear PlayList</a>';
+
+    echo '<a class="enlace" href="index.php?link=song&crearCancion=1">Crear Canciones</a>';
+
+    echo '<form action="index.php?link=user" method="POST">
+    <Label>Busca una cancion</Label>
+    <input list="listSong" type="text" name="search" placeholder="Busca aqui...">
+    <input type="submit" name="buscar" value="buscar">
+    </form>
+    <datalist id="listSong">';
+    foreach ($songs as $song) {
+    echo' <option value="'.$song->getTitle().'">"'.$song->getAuthor().'"</option>';
+    }
+    echo '</datalist>';
+
+    foreach ($songs as $song) {
+
+        echo ' <div class="cajas">
+        <br> <h2>'.$song->getTitle().'</h2> cantado por '.$song->getAuthor().'</br>
+        <audio controls>
+        <source src="public/mp3/'.$song->getMp3().'" type="audio/mp3">
+        Your browser does not support the audio element.
+        </audio>
+        </div>
+        ';
+    }
+
+    if (isset($_SESSION['crearLista'])) {
+        echo '<script>
+         document.getElementById("aviso").innerHTML="'.$_SESSION['crearLista'].'";
+         </script>'; 
+     }
+
+    ?>
+
+
+    
+    
+</body>
+
+<style>
+    * {
+        margin: 20px;
+    }
+
+    h3 {
+        color: red;
+    }
+
+    form {
+        display: flex;
+        justify-self: center;
+        width: 40%;
+        margin: auto;
+    }
+
+    .enlace {
+        border: 1px solid purple;
+        margin: 20px;
+        color: purple;
+        text-decoration: none;
+    }
+
+    .cajas {
+        display: flex;
+        justify-content: center;
+        border: 1px  solid purple;
+    }
+</style>
+</html>

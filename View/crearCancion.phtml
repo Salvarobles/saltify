@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php
+    echo '<div><form action="index.php?link=song" method="POST" enctype="multipart/form-data">
+    <Label>Titulo</Label>
+    <input type="text" name="title" placeholder="title">
+    <Label>Autor</Label>
+    <input type="text" name="author" placeholder="author">
+    <Label>Duracion</Label>
+    <input type="number" name="duration" placeholder="duration">
+    <Label>Mp3</Label>
+    <input type="file" name="mp3" placeholder="mp3">
+    <input type="submit" name="addSong" value="addSong">
+    </form></div>';
+    ?>
+    
+</body>
+
+<form action=""></form>
+<style>
+    div {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+</style>
+</html>

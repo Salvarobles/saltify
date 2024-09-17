@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h2>Crear PlayList</h2>
+<?php
+    echo '<div><form action="index.php?link=playlist" method="POST">
+    <Label>Titulo</Label>
+    <input type="text" name="title" placeholder="title">
+    <input type="submit" name="addList" value="addList">
+    </form></div>';
+    ?>
+
+</body>
+
+<style>
+    * {
+        margin: 20px;
+    }
+
+    form {
+        display: flex;
+        justify-self: center;
+        width: 40%;
+        margin: auto;
+    }
+
+    .enlace {
+        border: 1px solid purple;
+        margin: 20px;
+        color: purple;
+        text-decoration: none;
+    }
+
+    .cajas {
+        display: flex;
+        justify-content: center;
+        border: 1px  solid purple;
+    }
+</style>
+</html>
